@@ -1,0 +1,61 @@
+﻿@model List<ProductManagement.Models.ProductsReportViewModel>
+@{
+    ViewData["Title"] = "Inactive Products Report";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="text-center">
+    <h1 class="display-4">Inactive Products Report</h1>
+
+    <form method="get" asp-action="InActiveProductReport" class="productSearch mt-5" style="margin:auto;max-width:400px">
+        <input type="text" placeholder="Search by name, code or description" value="@ViewData["GetProducts"]" name="searchField">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    <br />
+    <table class="table" id="grid">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Code</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Discounted Price (10%)</th>
+                <th>Expiry Date</th>
+                <th>Is Active</th>
+                <th>Created Date</th>
+                <th>Created By</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.ProductName</td>
+                    <td>@product.ProductDescription</td>
+                    <td>@product.ProductCode</td>
+                    <td>@product.Quantity</td>
+                    <td>@product.Price.ToString("0.00")</td>
+                    <td>@product.DiscountedPrice.ToString("0.00")</td>
+                    <td>@product.ExpiryDate.ToShortDateString()</td>
+                    <td>@product.IsActive.ToString()</td>
+                    <td>@product.CreatedDate.ToShortDateString()</td>
+                    <td>@product.Employee</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#grid").kendoGrid({
+            sortable: true,
+            toolbar: ["excel"],
+            selectable: "row",
+            resizable: true,
+            excelExport: function (e) {
+                e.workbook.fileName = "InActiveProductReport.xlsx";
+            }
+        });
+    });
+</script>

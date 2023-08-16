@@ -1,0 +1,58 @@
+﻿@model List<ProductManagement.Models.NotificationsViewModel>
+@using System.Security.Claims
+
+@{
+    ViewData["Title"] = "Home";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="text-center">
+    @{
+        if (User.Identity.IsAuthenticated)
+        {
+            var claimsIdentity = User.Identity as System.Security.Claims.ClaimsIdentity;
+            var firstname = claimsIdentity != null ? claimsIdentity.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Name)?.Value : "";
+            var lastName = claimsIdentity != null ? claimsIdentity.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Surname)?.Value : "";
+            var fullName = $"{firstname} {lastName}";
+
+            <h1 class="display-4">Hello @fullName, welcome back.</h1>
+        }
+    }
+
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Open notifications (@Model.Count())</button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel">Notifications</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            @if (Model.Count() > 0)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var notification in Model)
+                        {
+                            <tr>
+                                <td>@notification.NotificationDescription</td>
+                                <td><a style="color:red" href="Delete/@notification.NotificationId"><i class="fa fa-close"></i></a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>You have no notifications.</p>
+            }
+        </div>
+    </div>
+</div>
+
+

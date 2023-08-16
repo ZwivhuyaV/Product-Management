@@ -1,0 +1,33 @@
+﻿@model ProductManagement.Models.AccessViewModel;
+
+@{
+    ViewData["Title"] = "Login";
+}
+<h1>Login</h1>
+<form asp-controller="Access" method="post" asp-action="Login" class="mt-5">
+    <div class="mb-3">
+        <label for="" class="form-label">Email</label>
+        <input type="text" class="form-control" asp-for="Email">
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Password</label>
+        <input type="password" class="form-control" asp-for="Password">
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-check">
+        <label for="" class="form-label">Keep me logged In</label>
+        <input type="checkbox" class="form-check-input" asp-for="KeepLoggedIn">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    @if (ViewData["ValidateMessage"] != null)
+    {
+        <br />
+        <br />
+        <label style="color:red">@ViewData["ValidateMessage"]</label>
+    }
+</form>

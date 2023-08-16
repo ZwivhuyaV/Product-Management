@@ -1,0 +1,55 @@
+﻿@model List<ProductManagement.Models.EmployeesReportViewModel>
+@{
+    ViewData["Title"] = "Active Users Report";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="text-center">
+    <h1 class="display-4">Active Users Report</h1>
+
+    <form method="get" asp-action="ActiveEmployeeReport" class="employeeSearch mt-5" style="margin:auto;max-width:400px">
+        <input type="text" placeholder="Search by name, surname or email" value="@ViewData["GetEmployees"]" name="searchField">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    <br />
+    <table class="table" id="grid">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Is Active</th>
+                <th>Is Admin</th>
+                <th>Created Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.Firstname</td>
+                    <td>@employee.LastName</td>
+                    <td>@employee.Email</td>
+                    <td>@employee.Role</td>
+                    <td>@employee.IsActive.ToString()</td>
+                    <td>@employee.IsAdmin.ToString()</td>
+                    <td>@employee.CreatedDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#grid").kendoGrid({
+            sortable: true,
+            toolbar: ["excel"],
+            selectable: "row",
+            resizable: true,
+            excelExport: function (e) {
+                e.workbook.fileName = "ActiveEmployeeReport.xlsx";
+            }
+        });
+    });
+</script>

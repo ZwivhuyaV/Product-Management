@@ -1,0 +1,48 @@
+﻿@model ProductManagement.Models.EditEmployeeViewModel
+
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<h1>Edit User</h1>
+<form method="post" action="Edit" class="mt-5">
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Firstname">
+        <span asp-validation-for="Firstname" class="text-danger"></span>
+        <input type="number" hidden class="form-control" asp-for="EmployeeId">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Last Name</label>
+        <input type="text" class="form-control" asp-for="LastName">
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Email</label>
+        <input type="text" class="form-control" asp-for="Email" readonly>
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3 form-check" hidden>
+        <label for="" class="form-label">Is Active</label>
+        <input type="checkbox" class="form-check-input" asp-for="IsActive">
+    </div>
+
+    <div class="mb-3 form-check">
+        <label for="" class="form-label">Is Admin</label>
+        <input type="checkbox" class="form-check-input" asp-for="IsAdmin">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+
+    <button type="submit" class="btn btn-danger" asp-action="Delete" asp-asp-controller="Employee">Delete</button>
+
+    @if (ViewData["ValidateMessage"] != null)
+    {
+        <br />
+        <br />
+        <label style="color:red">@ViewData["ValidateMessage"]</label>
+    }
+</form>

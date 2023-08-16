@@ -1,0 +1,15 @@
+C:\Source\Personal Projects\ProductManagement\ProductManagement.BLL\bin\Release\net6.0\ProductManagement.BLL.deps.json
+C:\Source\Personal Projects\ProductManagement\ProductManagement.BLL\bin\Release\net6.0\ProductManagement.BLL.dll
+C:\Source\Personal Projects\ProductManagement\ProductManagement.BLL\bin\Release\net6.0\ProductManagement.BLL.pdb
+C:\Source\Personal Projects\ProductManagement\ProductManagement.BLL\bin\Release\net6.0\ProductManagement.DAL.dll
+C:\Source\Personal Projects\ProductManagement\ProductManagement.BLL\bin\Release\net6.0\ProductManagement.DAL.pdb
+C:\Source\Personal Projects\ProductManagement\ProductManagement.BLL\obj\Release\net6.0\ProductManagement.BLL.csproj.AssemblyReference.cache
+C:\Source\Personal Projects\ProductManagement\ProductManagement.BLL\obj\Release\net6.0\ProductManagement.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Source\Personal Projects\ProductManagement\ProductManagement.BLL\obj\Release\net6.0\ProductManagement.BLL.AssemblyInfoInputs.cache
+C:\Source\Personal Projects\ProductManagement\ProductManagement.BLL\obj\Release\net6.0\ProductManagement.BLL.AssemblyInfo.cs
+C:\Source\Personal Projects\ProductManagement\ProductManagement.BLL\obj\Release\net6.0\ProductManagement.BLL.csproj.CoreCompileInputs.cache
+C:\Source\Personal Projects\ProductManagement\ProductManagement.BLL\obj\Release\net6.0\ProductManagement.BLL.csproj.CopyComplete
+C:\Source\Personal Projects\ProductManagement\ProductManagement.BLL\obj\Release\net6.0\ProductManagement.BLL.dll
+C:\Source\Personal Projects\ProductManagement\ProductManagement.BLL\obj\Release\net6.0\refint\ProductManagement.BLL.dll
+C:\Source\Personal Projects\ProductManagement\ProductManagement.BLL\obj\Release\net6.0\ProductManagement.BLL.pdb
+C:\Source\Personal Projects\ProductManagement\ProductManagement.BLL\obj\Release\net6.0\ref\ProductManagement.BLL.dll
